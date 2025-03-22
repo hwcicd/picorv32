@@ -5,7 +5,7 @@ spec: testbench.vcd
 	java -cp /daikon.jar daikon.Daikon testbench.dtrace testbench.decls >spec.out
 
 testbench.vcd: testbench_ez.vvp
-	vvp -N $< +vcd
+	vvp -N $< +vcd >/dev/null
 
 testbench_ez.vvp: testbench_ez.v picorv32.v
 	iverilog -o $@ -DCOMPRESSED_ISA $^
