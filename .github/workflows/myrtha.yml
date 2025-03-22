@@ -3,9 +3,10 @@ name: MyrthIa
 on: push
 
 jobs:
-  build:
+  container-test-job:
     runs-on: ubuntu-latest
-
+    container:
+      image: ghcr.io/hwcicd/myrtha:latest
     steps:
     - uses: actions/checkout@v4
     - run: make
