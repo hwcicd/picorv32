@@ -8,7 +8,9 @@ def rtlkon(filename):
     vars = get_vars(fptr)
     vars_to_decls(vars, name)
     vals = {var: -1 for var in vars}
-    assert("#0" in fptr.readline())
+    line = fptr.readline()
+    print(line)
+    assert("#0" in line)
     assert("$dumpvars" in fptr.readline())
     dptr = open(name + ".dtrace", "w")
     while line:
