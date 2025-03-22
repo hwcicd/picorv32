@@ -1,12 +1,23 @@
-name: MyrthIa 
+name: Myrthia 
   
 on: push
 
 jobs:
-  container-test-job:
+  generate-spec:
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/hwcicd/myrtha:latest
     steps:
     - uses: actions/checkout@v4
     - run: make
+    - uses: actions/checkout@v4
+      with:
+        repository: hwcicd/myrtha
+    - run: python3 rtlkon.py testbench.vcd
+    - run: java -cp ../daikon/daikon-5.8.20/daikon.jar daikon.Daikon testbench.decls testbench.dtrace >spec.out
+    - uses: actions/upload-artifact@v4
+      with:
+        name: Specification
+        path: spec.out
+      
+
