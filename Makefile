@@ -1,7 +1,7 @@
 COMPRESSED_ISA = C
 	
 spec: testbench.vcd
-	python3 rtlkon.py testbench.vcd
+	python3 /rtlkon.py testbench.vcd
 	java -cp /daikon.jar daikon.Daikon testbench.dtrace testbench.decls >spec.out
 
 testbench.vcd: testbench_ez.vvp
