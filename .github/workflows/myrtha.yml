@@ -12,7 +12,5 @@ jobs:
     - run: make
     - uses: actions/upload-artifact@v4
       with:
-        name: Specification
-        path: spec.out
-      
-
+        name: Testbench
+        path: testbench.vcd
