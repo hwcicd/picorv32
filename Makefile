@@ -1,5 +1,3 @@
-COMPRESSED_ISA = C
-
 test: testbench_ez.vvp
 	vvp -N $< +vcd
 
